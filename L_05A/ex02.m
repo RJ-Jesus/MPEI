@@ -11,8 +11,8 @@ N = 20;
 T_n = T(:);
 helper = T;
 for i = 2:N
-	helper = helper * T;
-	T_n = [T_n, helper(:)];
+    helper = helper * T;
+    T_n = [T_n, helper(:)];
 end
 
 plot(T_n');
@@ -22,11 +22,11 @@ helper = T;
 epsilon = 10^-4
 i = 2;
 while 1
-	helper = helper * T;
-	T_n_2 = [T_n_2, helper(:)];
-	if abs(T_n_2(i) - T_n_2(i - 1)) < epsilon
-		break;
-	end
-	i = i + 1;
+    helper = helper * T;
+    T_n_2 = [T_n_2, helper(:)];
+    if abs(T_n_2(i) - T_n_2(i - 1)) < epsilon
+        break;
+    end
+    i = i + 1;
 end
 

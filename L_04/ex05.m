@@ -1,8 +1,8 @@
-X = 0:1;	% [Chuva, Sol] - student predictions
+X = 0:1;    % [Chuva, Sol] - student predictions
 P_X = [0, 1];
 E_X = sum(X .* P_X);
 
-T = 0:1;	% [Chuva, Sol] - year based predictions
+T = 0:1;    % [Chuva, Sol] - year based predictions
 P_T = [0.75, 0.25];
 E_T = sum(T .* P_T);
 
@@ -12,9 +12,9 @@ S = rand(2, 1e6);
 S(1, :) = S(1, :) < P_X(2);
 S(2, :) = S(2, :) < P_T(2);
 for i = X
-	for j = T
-		P_XT(i+1, j+1) = sum(sum(bsxfun(@eq, S, [i, j]')) == 2) / 1e6;
-	end
+    for j = T
+        P_XT(i+1, j+1) = sum(sum(bsxfun(@eq, S, [i, j]')) == 2) / 1e6;
+    end
 end
 
 Cov_XT = sum(sum((X .- E_X)' * (T .- E_T) .* P_XT));

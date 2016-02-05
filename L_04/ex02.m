@@ -1,8 +1,8 @@
 X = -1:1;
 Y = -1:1;
 P_XY = [1/8, 1/8, 1/24
-	1/8, 1/4, 1/8
-	1/24, 1/8, 1/24];
+    1/8, 1/4, 1/8
+    1/24, 1/8, 1/24];
 
 P_X = sum(P_XY');
 P_Y = sum(P_XY);
@@ -12,11 +12,11 @@ X2 = unique(X .^ 2);
 Y2 = unique(Y .^ 2);
 P_X2Y2 = zeros(length(X2), length(Y2));
 for i = 1:length(X)
-	iP_X2Y2 = find(X2 == X(i) ^ 2);
-	for j = 1:length(Y)
-		jP_X2Y2 = find(Y2 == Y(j) ^ 2);
-		P_X2Y2(iP_X2Y2, jP_X2Y2) = P_X2Y2(iP_X2Y2, jP_X2Y2) + P_XY(i, j);
-	end
+    iP_X2Y2 = find(X2 == X(i) ^ 2);
+    for j = 1:length(Y)
+        jP_X2Y2 = find(Y2 == Y(j) ^ 2);
+        P_X2Y2(iP_X2Y2, jP_X2Y2) = P_X2Y2(iP_X2Y2, jP_X2Y2) + P_XY(i, j);
+    end
 end
 P_X2 = sum(P_X2Y2');
 P_Y2 = sum(P_X2Y2);
